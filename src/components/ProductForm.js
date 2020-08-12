@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import "./components.scss";
+import Input from "./Input/Input";
 
 class ProductForm extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class ProductForm extends Component {
   }
 
   handleInputChange = (event) => {
-    return this.setState(event.target.value)
+    const { name, value } = event.target;
+    return this.setState(prevState => ({ ...prevState, [name]: value }))
   }
 
   handleSubmit = (event) => {
@@ -26,14 +28,11 @@ class ProductForm extends Component {
       <div className="centered">
         <h2>Add new product</h2>
         <div>
-          <label className="label" htmlFor="">Product name</label>
-          <input name="product" type="text" value={ this.state.product } onChange={this.handleInputChange}/>
-          <label className="label" htmlFor="">Items count</label>
-          <input name="count" type="text" value={ this.state.count } onChange={this.handleInputChange}/>
-          <label className="label" htmlFor="">Price</label>
-          <input name="price" type="text" value={ this.state.price } onChange={this.handleInputChange}/>
-          <label className="label" htmlFor="">Promotional Price</label>
-          <input name="promotionalPrice" type="text" value={ this.state.promotionalPrice } onChange={this.handleInputChange}/>
+          <Input label="Product name" value={ this.state.product } name="product" type="text" onChange={ this.handleInputChange } />
+          <Input label="Items count" value={ this.state.count } name="count" type="text" onChange={ this.handleInputChange } />
+          <Input label="Price" value={ this.state.price } name="price" type="tel" onChange={ this.handleInputChange } />
+          <Input label="Promotional Price" value={ this.state.promotionalPrice } name="promotionalPrice" type="tel" onChange={ this.handleInputChange } />
+          
           <input className="button" type="submit" value="Aceptar" />
         </div>
       </div>

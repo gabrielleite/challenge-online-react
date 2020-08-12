@@ -1,0 +1,25 @@
+.input-container {
+  .label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #62595d;
+    margin-bottom: 8px;
+  }
+  input {
+    &[type="text"],
+    &[type="tel"] {
+      border: 1px solid #bfbbbd;
+      box-sizing: border-box;
+      padding: 8px;
+      border-radius: 8px;
+      width: 100%;
+    }
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
