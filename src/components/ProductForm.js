@@ -23,7 +23,7 @@ const ProductForm = () => {
   return (
     <div className="centered">
       <h2>Add new product</h2>
-      <div>
+      <form onSubmit={handleSubmit}>
         <Input
           label="Product name"
           value={state.product}
@@ -54,7 +54,7 @@ const ProductForm = () => {
         />
 
         <input className="button" type="submit" value="Aceptar" />
-      </div>
+      </form>
     </div>
   );
 };
