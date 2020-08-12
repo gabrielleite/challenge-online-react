@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import "./components.scss";
 import Input from "./Input/Input";
+import { Context } from "../store/context/context";
 
 const ProductForm = () => {
   const [state, setState] = useState({
-    product: "",
+    name: "",
     count: "",
     price: "",
     promotionalPrice: "",
   });
+
+  const { addProduct } = useContext(Context);
 
   const [ errors, setErrors ] = useState([]);
 
@@ -21,16 +24,23 @@ const ProductForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(state)
-    const InputErrors = ['product', 'count', 'price', 'promotionalPrice']
+    const InputErrors = ['name', 'count', 'price', 'promotionalPrice']
       .filter(key => state[key] === '');
     
       if(InputErrors.length) {
         setErrors(InputErrors);
         return;
       }
-      
+
       setErrors([]);
-      console.log(state);
+      setState({
+        name: "",
+        count: "",
+        price: "",
+        promotionalPrice: "",
+      });
+      addProduct(state);
+      
   };
 
   return (
@@ -39,11 +49,11 @@ const ProductForm = () => {
       <form onSubmit={handleSubmit}>
         <Input
           label="Product name"
-          value={state.product}
-          name="product"
+          value={state.name}
+          name="name"
           type="text"
           onChange={handleInputChange}
-          error={errors.includes("product")}
+          error={errors.includes("name")}
         />
         <Input
           label="Items count"
