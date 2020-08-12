@@ -1,14 +1,18 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const Context = createContext();
 
 const ContextProvider = ({children}) => {
-  const [store, setStore] = useState([
-    { name: "T-shirt", count: 3, price: 20, promotionalPrice: 15 },
-    { name: "Trousers", count: 5, price: 15, promotionalPrice: 13 },
-    { name: "sweater", count: 10, price: 25, promotionalPrice: 15 },
-    { name: "Jacket", count: 3, price: 40, promotionalPrice: 31 },
-  ]);
+  const [store, setStore] = useState(() => getStorage());
+
+  function getStorage() {
+    const cachedProducts = localStorage.getItem("products");
+    return  JSON.parse(cachedProducts) || [];
+  }
+
+  useEffect(()=> {
+    localStorage.setItem("products", JSON.stringify(store));
+  }, [store])
 
   const addProduct = (value) => {
     return setStore(prevState => ([ ...prevState, value ]));
