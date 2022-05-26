@@ -23,8 +23,9 @@ const ProductList = () => {
       </div>
       <ul className="product-list">
         {data.map((product, i) => (
-          <li key={i}>
+          <li>
             <Product
+              key={i}
               name={product.name}
               count={product.count}
               price={product.price}
