@@ -1,0 +1,28 @@
+h2 { margin: 0; margin-bottom: 30px; }
+
+.input-wrapper {
+  margin-bottom: 30px;
+
+  .label {
+    font-style: normal; font-weight: normal; font-size: 14px; line-height: 18px; 
+    display: flex; align-items: center; color: #62595D; margin-bottom: 8px;
+  }
+
+  input {
+    &[type="text"], &[type="number"] {
+      border: 1px solid #BFBBBD;
+      box-sizing: border-box; padding: 8px;
+      border-radius: 8px; width: 100%;
+    }
+    font-size: 16px; line-height: 24px;
+  }
+
+  .validation-error-message {
+    color: red;
+  }
+}
+
+.button { 
+  border: none; background: #2C3357;
+  border-radius: 8px; padding: 8px 16px; min-width: 100px; font-weight: bold; color: #FFFFFF;
+}

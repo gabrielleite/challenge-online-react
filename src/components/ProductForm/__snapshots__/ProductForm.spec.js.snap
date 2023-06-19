@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductForm renders correctly 1`] = `
+<div>
+  <form
+    class="centered"
+  >
+    <h2>
+      Add new product
+    </h2>
+    <div>
+      <div
+        class="input-wrapper"
+      >
+        <label
+          class="label"
+          for="name"
+        >
+          Product name
+        </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+        />
+      </div>
+      <div
+        class="input-wrapper"
+      >
+        <label
+          class="label"
+          for="count"
+        >
+          Items count
+        </label>
+        <input
+          id="count"
+          min="0"
+          name="count"
+          type="number"
+          value="0"
+        />
+      </div>
+      <div
+        class="input-wrapper"
+      >
+        <label
+          class="label"
+          for="price"
+        >
+          Price
+        </label>
+        <input
+          id="price"
+          min="0"
+          name="price"
+          step=".01"
+          type="number"
+        />
+      </div>
+      <div
+        class="input-wrapper"
+      >
+        <label
+          class="label"
+          for="promotionalPrice"
+        >
+          Promotional Price
+        </label>
+        <input
+          id="promotionalPrice"
+          min="0"
+          name="promotionalPrice"
+          step=".01"
+          type="number"
+        />
+      </div>
+      <button
+        class="nimbus--button nimbus--button--primary"
+        type="submit"
+      >
+        <i
+          class="nimbus--button__icon nimbus--button__icon--start"
+        >
+          <svg
+            aria-hidden="true"
+            aria-label="Download"
+            fill="currentColor"
+            height="16"
+            role="img"
+            style="display: inline-block; user-select: none; vertical-align: middle;"
+            viewBox="0 0 16 16"
+            width="16"
+          >
+            <path
+              d="M2.5 14.75h11V16h-11zm.39-5.45l4.27 3.88a1.26 1.26 0 001.68 0l4.27-3.88a1.25 1.25 0 00-.84-2.18H9.8V1.25A1.25 1.25 0 008.55 0h-1.1A1.25 1.25 0 006.2 1.25v5.87H3.73a1.25 1.25 0 00-.84 2.18zm.84-.93h3.72V1.25h1.1v7.12h3.72L8 12.25 3.73 8.37z"
+            />
+          </svg>
+        </i>
+        Aceptar
+      </button>
+    </div>
+  </form>
+</div>
+`;
