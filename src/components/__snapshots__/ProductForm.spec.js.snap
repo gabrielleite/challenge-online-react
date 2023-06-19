@@ -11,44 +11,48 @@ exports[`ProductForm renders correctly 1`] = `
     <div>
       <label
         class="label"
-        for=""
+        for="name"
       >
         Product name
       </label>
       <input
+        id="name"
         name="name"
         type="text"
         value=""
       />
       <label
         class="label"
-        for=""
+        for="count"
       >
         Items count
       </label>
       <input
+        id="count"
         name="count"
         type="text"
         value=""
       />
       <label
         class="label"
-        for=""
+        for="price"
       >
         Price
       </label>
       <input
+        id="price"
         name="price"
         type="text"
         value=""
       />
       <label
         class="label"
-        for=""
+        for="promotionalPrice"
       >
         Promotional Price
       </label>
       <input
+        id="promotionalPrice"
         name="promotionalPrice"
         type="text"
         value=""
