@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductForm renders correctly 1`] = `
+<div>
+  <form
+    class="centered"
+  >
+    <h2>
+      Add new product
+    </h2>
+    <div>
+      <label
+        class="label"
+        for=""
+      >
+        Product name
+      </label>
+      <input
+        name="name"
+        type="text"
+        value=""
+      />
+      <label
+        class="label"
+        for=""
+      >
+        Items count
+      </label>
+      <input
+        name="count"
+        type="text"
+        value=""
+      />
+      <label
+        class="label"
+        for=""
+      >
+        Price
+      </label>
+      <input
+        name="price"
+        type="text"
+        value=""
+      />
+      <label
+        class="label"
+        for=""
+      >
+        Promotional Price
+      </label>
+      <input
+        name="promotionalPrice"
+        type="text"
+        value=""
+      />
+      <input
+        class="button"
+        type="submit"
+        value="Aceptar"
+      />
+    </div>
+  </form>
+</div>
+`;
