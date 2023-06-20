@@ -10,7 +10,7 @@ export const ProductContextProvider = ({children}) => {
 
     const list = () => {
         return Object.keys(localStorage).map((key) => 
-            JSON.parse(localStorage[key]));
+            ({...JSON.parse(localStorage[key]), key}));
     }
 
     return (
