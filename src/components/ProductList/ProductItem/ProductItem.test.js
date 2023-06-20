@@ -1,12 +1,12 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import '@testing-library/jest-dom/extend-expect';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 
-import Product from "./Product";
+import Product from './ProductItem';
 
-const data = { name: "T-shirt", count: 3, price: 20, promotionalPrice: 15 };
+const data = { name: 'T-shirt', count: 3, price: 20, promotionalPrice: 15 };
 
-describe("Render Product", () => {
+describe('Render Product', () => {
   beforeEach(() =>
     render(
       <Product
@@ -18,16 +18,16 @@ describe("Render Product", () => {
     )
   );
 
-  it("Render Name", () => {
+  it('Render Name', () => {
     expect(screen.getByText(data.name)).toBeInTheDocument();
   });
-  it("Render Count", () => {
+  it('Render Count', () => {
     expect(screen.getByText(data.count.toString())).toBeInTheDocument();
   });
-  it("Render Price", () => {
+  it('Render Price', () => {
     expect(screen.getByText(data.price.toString())).toBeInTheDocument();
   });
-  it("Render Promotional Price", () => {
+  it('Render Promotional Price', () => {
     expect(
       screen.getByText(data.promotionalPrice.toString())
     ).toBeInTheDocument();
