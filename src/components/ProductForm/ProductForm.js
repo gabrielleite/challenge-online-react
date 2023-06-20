@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '@tiendanube/components';
 import { DownloadIcon } from '@tiendanube/icons';
 import { useForm } from 'react-hook-form';
@@ -8,16 +9,26 @@ import './ProductForm.scss';
 
 const ProductForm = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const { addProduct } = useContext(ProductContext);
+  const { upsertProduct, findProduct } = useContext(ProductContext);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-  const handleFormSubmit = (product) => {
-    addProduct(product);
-    reset();
+  useEffect(() => {
+    const product = findProduct(id);
+
+    if (product) reset({ ...product });
+  }, [id, findProduct, reset]);
+
+  const handleFormSubmit = (product, event) => {
+    upsertProduct(product);
+    event.target.reset();
+    navigate('/products');
   }
 
   return (
     <form className="centered" onSubmit={handleSubmit(handleFormSubmit)}>
       <h2>Add new product</h2>
+      <input type="hidden" {...register('key')} />
       <div>
         <div className="input-wrapper">
           <label className="label" htmlFor="name">Product name</label>
