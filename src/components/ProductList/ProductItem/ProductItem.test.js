@@ -2,14 +2,14 @@ import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import Product from './ProductItem';
+import ProductItem from './ProductItem';
 
 const data = { name: 'T-shirt', count: 3, price: 20, promotionalPrice: 15 };
 
 describe('Render Product', () => {
   beforeEach(() =>
     render(
-      <Product
+      <ProductItem
         name={data.name}
         count={data.count}
         price={data.price}

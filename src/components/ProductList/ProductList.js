@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ProductContext } from '../../contexts/product/ProductContext';
-import Product from '../Product/Product';
+import ProductItem from './ProductItem/ProductItem';
 
 import './ProductList.scss';
 
@@ -23,12 +23,13 @@ const ProductList = () => {
                   <li>Count</li>
                   <li>Price</li>
                   <li>Promotional Price</li>
+                  <li>Options</li>
                 </ul>
               </div>
               <ul className="product-list">
                 {products.map(({key, name, count, price, promotionalPrice}) => (
                     <li key={key}>
-                      <Product
+                      <ProductItem
                         name={name}
                         count={count}
                         price={price}
