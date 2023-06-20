@@ -5,6 +5,11 @@ import { CloseIcon } from '@tiendanube/icons';
 import './ProductItem.scss';
 
 const ProductItem = ({ name, count, price, promotionalPrice, onRemove }) => {
+  const handleRemove = () => {
+    const shouldRemove = window.confirm('Deseja remover o produto?');
+    if (shouldRemove) onRemove();
+  };
+
   return (
     <div className="product">
       <span>{name}</span>
@@ -12,7 +17,7 @@ const ProductItem = ({ name, count, price, promotionalPrice, onRemove }) => {
       <span>{price}</span>
       <span>{promotionalPrice}</span>
       <span>
-        <IconButton icon={CloseIcon} onClick={onRemove} />
+        <IconButton icon={CloseIcon} onClick={handleRemove} />
       </span>
     </div>
   );
