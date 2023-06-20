@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ProductContext } from '../../contexts/product/ProductContext';
 import ProductItem from './ProductItem/ProductItem';
 
 import './ProductList.scss';
 
 const ProductList = () => {
-  const { getProducts } = useContext(ProductContext);
+  const { getProducts, removeProduct } = useContext(ProductContext);
+  const [products, setProducts] = useState(getProducts());
 
-  let products = getProducts();
+  const handleRemove = (key) => {
+    removeProduct(key);
+    setProducts((prevProducts) => 
+      prevProducts.filter((product) => product.key !== key));
+  };
 
   return (
     <section>
@@ -34,6 +39,7 @@ const ProductList = () => {
                         count={count}
                         price={price}
                         promotionalPrice={promotionalPrice}
+                        onRemove={() => handleRemove(key)}
                       />
                     </li>
                   ))}
