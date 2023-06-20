@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink } from 'react-router-dom';
 
-import ProductForm from './components/ProductForm';
+import ProductForm from './components/ProductForm/ProductForm';
 import ProductList from './components/ProductList/ProductList';
+import { ProductContextProvider } from './contexts/product/ProductContext';
 
 import './styles.scss';
 
@@ -20,7 +21,7 @@ function App() {
               <NavLink to="/" activeClassName="active" exact>Product List</NavLink>
             </li>
             <li>
-              <NavLink to="/products" activeClassName="active">Products</NavLink>
+              <NavLink to="/products" activeClassName="active">Product Form</NavLink>
             </li>
           </ul>
         </nav>
@@ -29,10 +30,12 @@ function App() {
         <header className="page-title">
           <h1>Products</h1>
         </header>
-        <Switch>
-          <Route exact path="/" component={ProductList}/>
-          <Route exact path="/products" component={ProductForm} />
-        </Switch>
+        <ProductContextProvider>
+          <Switch>
+            <Route exact path="/" component={ProductList} />
+            <Route exact path="/products" component={ProductForm} />
+          </Switch>
+        </ProductContextProvider>
       </main>
     </div>
   );
