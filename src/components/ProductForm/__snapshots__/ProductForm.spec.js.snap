@@ -8,6 +8,10 @@ exports[`ProductForm renders correctly 1`] = `
     <h2>
       Add new product
     </h2>
+    <input
+      name="key"
+      type="hidden"
+    />
     <div>
       <div
         class="input-wrapper"

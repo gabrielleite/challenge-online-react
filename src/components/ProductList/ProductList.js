@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ProductContext } from '../../contexts/product/ProductContext';
 import ProductItem from './ProductItem/ProductItem';
 
@@ -7,11 +8,17 @@ import './ProductList.scss';
 const ProductList = () => {
   const { getProducts, removeProduct } = useContext(ProductContext);
   const [products, setProducts] = useState(getProducts());
+  const navigate = useNavigate();
+
 
   const handleRemove = (key) => {
     removeProduct(key);
     setProducts((prevProducts) => 
       prevProducts.filter((product) => product.key !== key));
+  };
+
+  const handleEdit = (key) => {
+    navigate(`/products/${key}`);
   };
 
   return (
@@ -40,6 +47,7 @@ const ProductList = () => {
                         price={price}
                         promotionalPrice={promotionalPrice}
                         onRemove={() => handleRemove(key)}
+                        onEdit={() => handleEdit(key)}
                       />
                     </li>
                   ))}
